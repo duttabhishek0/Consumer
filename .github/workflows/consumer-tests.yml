@@ -1,7 +1,8 @@
-name: Consumer Contract Verification
+name: Consumer Workflow
 
 on:
-  workflow_dispatch:
+  repository_dispatch:
+    types: [trigger-consumer-workflow]
 
 jobs:
   verify-contract:
