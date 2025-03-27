@@ -80,6 +80,10 @@ out/
 /target/generated-test-sources
 /target/maven-status
 /target/test-classes
+/target/maven-archiver
+target/surefire-reports
+/target/consumer-0.0.1-SNAPSHOT.jar.original/
+/target/consumer-0.0.1-SNAPSHOT.jar/
 
 
 
