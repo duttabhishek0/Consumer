@@ -9,14 +9,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout Consumer Code
+        uses: actions/checkout@v2
 
-    - name: Set up JDK
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17' 
-        distribution: 'temurin'
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
 
-    - name: Run Consumer Tests
-      run: mvn test
+      - name: Checkout Stubs Repository
+        uses: actions/checkout@v2
+        with:
+          repository: duttabhishek0/Stubs
+          ref: stubs-branch
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          path: stubs
+
+      - name: Run Consumer Tests
+        env:
+          STUBS_PATH: ./stubs  # Path to where the stubs are checked out
+        run: |
+          # Ensure your consumer tests use the stubs from the specified path
+          mvn test -Dstubrunner.stubsMode=LOCAL -Dstubrunner.ids=your.group.id:your-artifact-id:+:stubs:8080 -Dstubrunner.repositoryRoot=file://${{ env.STUBS_PATH }}
