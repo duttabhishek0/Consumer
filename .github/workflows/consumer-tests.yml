@@ -30,5 +30,6 @@ jobs:
         env:
           STUBS_PATH: ./stubs  # Path to where the stubs are checked out
         run: |
-          # Ensure your consumer tests use the stubs from the specified path
-          mvn test -Dstubrunner.stubsMode=LOCAL -Dstubrunner.ids=your.group.id:your-artifact-id:+:stubs:8080 -Dstubrunner.repositoryRoot=file://${{ env.STUBS_PATH }}
+          mvn test -Dstubrunner.stubsMode=LOCAL \
+                   -Dstubrunner.ids=com.example:productservice:+:stubs:8080 \
+                   -Dstubrunner.repositoryRoot=file:///${{ github.workspace }}/stubs
