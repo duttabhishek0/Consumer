@@ -5,6 +5,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cloud.contract.stubrunner.spring.AutoConfigureStubRunner;
 import org.springframework.cloud.contract.stubrunner.spring.StubRunnerProperties;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,8 +13,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @AutoConfigureStubRunner(
-        ids = "com.example:productservice:+:stubs:8080", // Use + to match any version or specify 0.0.1-SNAPSHOT
-        stubsMode = StubRunnerProperties.StubsMode.LOCAL // Use LOCAL if stubs are in your local Maven repo
+        ids = "com.example:productservice:+:stubs:8080",
+        stubsMode = StubRunnerProperties.StubsMode.REMOTE,
+        repositoryRoot = "https://github.com/duttabhishek0/temp-stubs"
 )
 public class ConsumerContractTest {
     @Test
