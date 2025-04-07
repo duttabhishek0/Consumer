@@ -30,6 +30,4 @@ jobs:
         env:
           STUBS_PATH: ./stubs  # Path to where the stubs are checked out
         run: |
-          mvn test -Dstubrunner.stubsMode=LOCAL \
-                   -Dstubrunner.ids=com.example:productservice:+:stubs:8080 \
-                   -Dstubrunner.repositoryRoot=file:///${{ github.workspace }}/temp-stubs \
+          mvn install
