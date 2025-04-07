@@ -33,4 +33,4 @@ jobs:
           SPRING_CLOUD_CONTRACT_STUBRUNNER_CLASSIFIER: stubs
           SPRING_CLOUD_CONTRACT_STUBRUNNER_IDS: com.example:productservice:0.0.1-SNAPSHOT:stubs:8080
         run: |
-            mvn test
+            mvn install
