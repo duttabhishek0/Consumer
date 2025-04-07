@@ -28,6 +28,9 @@ jobs:
 
       - name: Run Consumer Tests
         env:
-          STUBS_PATH: ./stubs  # Path to where the stubs are checked out
+          STUBS_PATH: ./temp-stubs  # Ensure the test uses this path
+          SPRING_CLOUD_CONTRACT_STUBRUNNER_REPOSITORY_ROOT: ./temp-stubs  # Point StubRunner to the local stubs
+          SPRING_CLOUD_CONTRACT_STUBRUNNER_CLASSIFIER: stubs
+          SPRING_CLOUD_CONTRACT_STUBRUNNER_IDS: com.example:productservice:0.0.1-SNAPSHOT:stubs:8080
         run: |
-          mvn install
+            mvn test
