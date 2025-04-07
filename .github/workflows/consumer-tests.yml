@@ -22,14 +22,14 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: duttabhishek0/temp-stubs
-          ref: main
+          ref: master
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           path: temp-stubs
 
       - name: Run Consumer Tests
         env:
-          STUBS_PATH: ./temp-stubs  # Ensure the test uses this path
-          SPRING_CLOUD_CONTRACT_STUBRUNNER_REPOSITORY_ROOT: ./temp-stubs  # Point StubRunner to the local stubs
+          STUBS_PATH: ./temp-stubs
+          SPRING_CLOUD_CONTRACT_STUBRUNNER_REPOSITORY_ROOT: ./temp-stubs
           SPRING_CLOUD_CONTRACT_STUBRUNNER_CLASSIFIER: stubs
           SPRING_CLOUD_CONTRACT_STUBRUNNER_IDS: com.example:productservice:0.0.1-SNAPSHOT:stubs:8080
         run: |
