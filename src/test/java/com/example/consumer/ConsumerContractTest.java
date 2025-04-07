@@ -23,7 +23,7 @@ import static org.springframework.cloud.contract.stubrunner.spring.StubRunnerPro
         stubsMode = StubRunnerProperties.StubsMode.REMOTE,
         repositoryRoot="git://https://github.com/duttabhishek0/temp-stubs.git",
         properties = {
-                "git.branch=main"
+                "git.branch=master"
         }
 )
 public final class ConsumerContractTest {
