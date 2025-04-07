@@ -33,4 +33,6 @@ jobs:
           SPRING_CLOUD_CONTRACT_STUBRUNNER_CLASSIFIER: stubs
           SPRING_CLOUD_CONTRACT_STUBRUNNER_IDS: com.example:productservice:0.0.1-SNAPSHOT:stubs:8080
         run: |
-            mvn install
+          mvn install -Dstubrunner.stubsMode=REMOTE \
+                 -Dstubrunner.ids=com.example:productservice:0.0.1-SNAPSHOT:8080 \
+                 -Dstubrunner.repositoryRoot=file:///${{ github.workspace }}/temp-stubs
