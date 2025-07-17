@@ -20,7 +20,7 @@ class ConsumerApplicationTests {
 
 //	@Pact(consumer = "ProductConsumer")
 //	public RequestResponsePact createPactForGetProducts(PactDslWithProvider builder) {
-//		return builder
+//		return buildere
 //				.given("Products exist")
 //				.uponReceiving("A request for products")
 //				.path("/products")
